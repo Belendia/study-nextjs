@@ -1,14 +1,11 @@
+import User from "../components/user";
+
 function UsersList({ users }) {
   return (
     <>
       <h1>List of users</h1>
       {users.map((user) => {
-        return (
-          <div key={user.id}>
-            <h2>{user.name}</h2>
-            <p>{user.email}</p>
-          </div>
-        );
+        return <User key={user.id} user={user} />;
       })}
     </>
   );
