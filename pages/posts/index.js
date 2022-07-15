@@ -30,5 +30,6 @@ export async function getStaticProps() {
     props: {
       posts: data.slice(0, 3),
     },
+    revalidate: 10, // 10 seconds
   };
 }
