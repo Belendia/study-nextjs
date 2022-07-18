@@ -7,6 +7,7 @@ const fetcher = async () => {
 };
 
 function DashboardSWR() {
+  // useSWR will refresh the client side data automatically by its own if there is any change to the data in the server.
   const { data, error } = useSWR("dashboard", fetcher);
 
   if (error) {
