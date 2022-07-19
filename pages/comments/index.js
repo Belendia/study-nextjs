@@ -1,6 +1,7 @@
 import { useState } from "react";
 function commentsPage({ commentList }) {
   const [comments, setComments] = useState(commentList);
+  const [comment, setComment] = useState("");
 
   const fetchComments = async () => {
     const response = await fetch("/api/comments");
@@ -8,8 +9,28 @@ function commentsPage({ commentList }) {
     setComments(data);
   };
 
+  const submitComment = async (e) => {
+    e.preventDefault();
+    const response = await fetch("/api/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comment }),
+    });
+    const data = await response.json();
+    setComments([...comments, data]);
+    setComment("");
+  };
+
   return (
     <>
+      <input
+        type="text"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+      />
+      <button onClick={submitComment}>Submit</button>
       <button onClick={fetchComments}>Load comments</button>
       {comments.map((comment) => (
         <div key={comment.id}>
