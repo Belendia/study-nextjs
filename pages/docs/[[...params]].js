@@ -1,3 +1,4 @@
+// catch all routes
 import { useRouter } from "next/router";
 
 function Doc() {
@@ -5,6 +6,8 @@ function Doc() {
   const { params = [] } = router.query;
   console.log(params);
 
+  // http://localhost:3000/docs/[...params]
+  // http://localhost:3000/docs/param1/param2/param3/...
   if (params.length === 2) {
     return (
       <h1>
