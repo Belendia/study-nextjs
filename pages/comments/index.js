@@ -36,25 +36,40 @@ function commentsPage({ commentList }) {
 
   return (
     <>
-      <input
-        type="text"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-      />
-      <button onClick={submitComment}>Submit</button>
-      <button onClick={fetchComments}>Load comments</button>
-      {comments.map((comment) => (
-        <div key={comment.id}>
-          <h5>
-            {/* <Link href={`/comments/${comment.id}`}>
-              <a> */}
-            {comment.id}. {comment.text}{" "}
-            {/* </a>
-            </Link> */}
-          </h5>
-          <button onClick={() => deleteComment(comment.id)}>Delete</button>
+      <div className="container">
+        <button className="btn btn-warning" onClick={fetchComments}>
+          Load comments
+        </button>
+
+        <div className="row">
+          <input
+            type="text"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <button className="btn btn-primary" onClick={submitComment}>
+            Submit
+          </button>
         </div>
-      ))}
+
+        {comments.map((comment) => (
+          <div key={comment.id}>
+            <h5>
+              {/* <Link href={`/comments/${comment.id}`}>
+              <a> */}
+              {comment.id}. {comment.text}{" "}
+              {/* </a>
+            </Link> */}
+            </h5>
+            <button
+              className="btn btn-danger"
+              onClick={() => deleteComment(comment.id)}
+            >
+              Delete
+            </button>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
