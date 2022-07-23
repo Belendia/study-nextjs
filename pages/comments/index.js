@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "next/router";
+
 function commentsPage({ commentList }) {
   const [comments, setComments] = useState(commentList);
   const [comment, setComment] = useState("");
@@ -44,7 +46,11 @@ function commentsPage({ commentList }) {
       {comments.map((comment) => (
         <div key={comment.id}>
           <h5>
+            {/* <Link href={`/comments/${comment.id}`}>
+              <a> */}
             {comment.id}. {comment.text}{" "}
+            {/* </a>
+            </Link> */}
           </h5>
           <button onClick={() => deleteComment(comment.id)}>Delete</button>
         </div>
