@@ -20,7 +20,7 @@ function Dashboard() {
   }
 
   return (
-    <div>
+    <div className="content">
       <h2>Dashboard</h2>
       <h4>Post - {dashboardData.posts}</h4>
       <h4>Likes - {dashboardData.likes}</h4>
