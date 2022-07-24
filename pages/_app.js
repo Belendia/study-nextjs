@@ -1,8 +1,12 @@
-import "../styles/globals.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+// The head component dynamically manage the documents head section like meta, title etc.
+import Head from "next/head";
 import { ThemeProvider } from "styled-components";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/globals.css";
 import "../styles/layout.css";
 
 const theme = {
@@ -17,6 +21,10 @@ function MyApp({ Component, pageProps }) {
   }
   return (
     <ThemeProvider theme={theme}>
+      <Head>
+        <title>Learning Next.js</title>
+        <meta name="description" content="Learning Next.js" />
+      </Head>
       <Header />
       <Component {...pageProps} />
       <Footer />
