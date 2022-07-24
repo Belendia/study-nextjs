@@ -1,5 +1,7 @@
+import styles from "../styles/about.module.css";
+
 function About() {
-  return <h2>About Page</h2>;
+  return <div className={styles.highlight}>About Page</div>;
 }
 
 export default About;

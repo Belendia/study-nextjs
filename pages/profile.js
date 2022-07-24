@@ -1,5 +1,7 @@
+import styles from "../styles/profile.module.css";
+
 function Profile() {
-  return <h1>Profile Page</h1>;
+  return <div className={styles.highlight}>Profile Page</div>;
 }
 
 export default Profile;
