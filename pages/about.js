@@ -2,7 +2,7 @@
 import Head from "next/head";
 
 import styles from "../styles/about.module.css";
-import Footer from "../components/footer";
+import Footer from "../components/layout/Footer";
 
 // even if we define Head component in the _app.js file, the Head section defined
 // in the about section will be merged with the Head definition in the _app.js and override any conflicting element like title.

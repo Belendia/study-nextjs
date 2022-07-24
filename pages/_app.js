@@ -2,12 +2,12 @@
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "@/layout/Header";
+import Footer from "@/layout/Footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/globals.css";
-import "../styles/layout.css";
+import "styles/globals.css";
+import "styles/layout.css";
 
 const theme = {
   colors: {
