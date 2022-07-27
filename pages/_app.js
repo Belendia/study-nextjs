@@ -4,10 +4,12 @@ import { ThemeProvider } from "styled-components";
 
 import Header from "@/layout/Header";
 import Footer from "@/layout/Footer";
+import Navbar from "../components/Navbar";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "styles/globals.css";
 import "styles/layout.css";
+import "../components/Navbar.css";
 
 const theme = {
   colors: {
@@ -26,6 +28,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="Learning Next.js" />
       </Head>
       <Header />
+      <Navbar />
       <Component {...pageProps} />
       <Footer />
     </ThemeProvider>
