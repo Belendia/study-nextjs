@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function Navbar() {
   //   const [session, loading] = useSession();
@@ -32,7 +32,9 @@ function Navbar() {
               <a
                 onClick={(e) => {
                   e.preventDefault();
-                  //   signIn("github");
+                  // we inserted the parameter "github" because we only have one
+                  // provider and we don't want to see the default signin page.
+                  signIn("github");
                 }}
               >
                 Sign In
@@ -47,7 +49,7 @@ function Navbar() {
               <a
                 onClick={(e) => {
                   e.preventDefault();
-                  //   signOut();
+                  signOut();
                 }}
               >
                 Sign Out
