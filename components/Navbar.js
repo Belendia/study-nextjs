@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 
+// useSession hook is used to check if the user is signed in or not.
+
 function Navbar() {
-  //   const [session, loading] = useSession();
+  const { data: session, status } = useSession();
   return (
     <nav className="header">
       <h1 className="logo">
@@ -25,8 +27,8 @@ function Navbar() {
             <a>Blog</a>
           </Link>
         </li>
-        {/* !loading && !session && */}
-        {
+
+        {!session && status === "unauthenticated" && (
           <li>
             <Link href="/api/auth/signin">
               <a
@@ -41,9 +43,9 @@ function Navbar() {
               </a>
             </Link>
           </li>
-        }
-        {/* session && */}
-        {
+        )}
+
+        {session && status === "authenticated" && (
           <li>
             <Link href="/api/auth/signout">
               <a
@@ -56,7 +58,7 @@ function Navbar() {
               </a>
             </Link>
           </li>
-        }
+        )}
       </ul>
     </nav>
   );
