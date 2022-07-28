@@ -10,8 +10,11 @@ function Navbar() {
       <h1 className="logo">
         <a href="#">NextJSTut</a>
       </h1>
-      {/* ${!session && loading ? "loading" : "loaded"} */}
-      <ul className={`main-nav`}>
+      <ul
+        className={`main-nav ${
+          !session && status === "loading" ? "loading" : "loaded"
+        }`}
+      >
         <li>
           <Link href="/">
             <a>Home</a>
