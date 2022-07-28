@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   }
   return (
     <ThemeProvider theme={theme}>
-      <SessionProvider>
+      <SessionProvider session={session}>
         <Head>
           <title>Learning Next.js</title>
           <meta name="description" content="Learning Next.js" />
