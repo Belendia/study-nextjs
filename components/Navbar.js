@@ -20,16 +20,50 @@ function Navbar() {
             <a>Home</a>
           </Link>
         </li>
-        <li>
-          <Link href="/dashboard">
-            <a>Dashboard</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/blog">
-            <a>Blog</a>
-          </Link>
-        </li>
+        {session && status === "authenticated" && (
+          <>
+            <li>
+              <Link href="/dashboard">
+                <a>Dashboard</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog">
+                <a>Blog</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/books">
+                <a>Books</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/comments">
+                <a>Comments</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/docs">
+                <a>Docs</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/items">
+                <a>Items</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/posts">
+                <a>Posts</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/product">
+                <a>Product</a>
+              </Link>
+            </li>
+          </>
+        )}
 
         {!session && status === "unauthenticated" && (
           <li>
