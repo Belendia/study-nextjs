@@ -13,6 +13,19 @@ export async function getServerSideProps(context) {
   // when calling it in the server side we should pass a context.
   const session = await getSession(context);
 
+  // We don't return props, we should return a redirect object.
+  // This is hwo we secure pages server side.
+  // If we add this check, we will not get the list of free blog posts in the
+  // props at the end of this function.
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/api/auth/signin?callbackUrl=http://localhost:3000/blog",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: {
       data: session
