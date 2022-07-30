@@ -18,7 +18,8 @@ function Items({ items }) {
         // For exampe the following HTML code, the username and password will not be sent to the browser.
       }
       <h5>
-        Username: {process.env.DB_USER} and Password: {process.env.DB_PASSWORD}
+        Username: {process.env.MONGO_DB_URI} and Password:{" "}
+        {process.env.DB_PASSWORD}
       </h5>
       {
         // To expose the environment variable to the user you should prefix the variable in the .env.local file with NEXT_PUBLIC_xxx
@@ -34,7 +35,7 @@ export default Items;
 
 export async function getServerSideProps() {
   // The .env.local will be automatically git ignored.
-  const user = process.env.DB_USER;
+  const user = process.env.MONGO_DB_URI;
   const password = process.env.DB_PASSWORD;
   console.log(
     `Connecting to the database with user ${user} and password ${password}`
